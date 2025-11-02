@@ -5,7 +5,7 @@ This is my personal **AI/ML Engineer portfolio website**, showcasing my professi
 The site design is based on the **Miniport** template by [HTML5 UP](https://html5up.net/miniport), customized and extended by me to fit a modern dark theme and AI engineering focus.
 
 ## 🌐 Live Website
-[https://ardalan224.github.io](https://ardalan224.github.io)
+[https://ArdalanArabzadeh.github.io](https://ArdalanArabzadeh.github.io)
 
 ## 🧠 Features
 - Responsive, single-page design optimized for mobile and desktop.
@@ -27,3 +27,4 @@ The site design is based on the **Miniport** template by [HTML5 UP](https://html
 - **Demo images:** [Unsplash](https://unsplash.com/)
 - **Custom modifications and content:** © 2025 Ardalan Arabzadeh.
   You may reuse this site’s structure or styling under the same CC 3.0 license, provided proper credit is given to both HTML5 UP and Ardalan Arabzadeh.
+
