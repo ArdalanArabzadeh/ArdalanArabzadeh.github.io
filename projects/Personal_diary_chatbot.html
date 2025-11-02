@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <title>Project: Personal Diary Chatbot — Ardalan Arabzadeh</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/custom.css" />
+</head>
+
+<body data-theme="dark">
+    <nav id="nav">
+        <ul class="container">
+            <li><a href="../index.html#top">Overview</a></li>
+            <li><a href="../index.html#work">Expertise</a></li>
+            <li><a href="../index.html#certificates">Certificates</a></li>
+            <li><a href="../index.html#portfolio">Portfolio</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <article class="wrapper style1 project-detail">
+        <div class="container">
+            <header>
+                <h1 class="hero-title">Personal Diary <span class="hero-highlight">Chatbot</span></h1>
+                <p class="hero-lead"><span class="hero-muted">A local AI diary assistant that remembers your daily notes
+                        and answers questions about your past — fully private and offline.</span></p>
+                <p class="hero-lead" style="margin-top:0.5rem;">
+                    <a href="https://github.com/ArdalanArabzadeh/My_AI_PlayGround/tree/main/Personal_Chatbot"
+                        class="icon brands fa-github" target="_blank" rel="noopener" style="margin-right:.5rem;"><span
+                            class="label">GitHub</span></a>
+                    <a href="https://github.com/ArdalanArabzadeh/My_AI_PlayGround/tree/main/Personal_Chatbot"
+                        target="_blank" rel="noopener">View source on GitHub</a>
+                </p>
+            </header>
+            <section class="box">
+                <h2><span class="hero-highlight">Project Overview</span></h2>
+                <p>
+                    A local AI diary assistant that remembers your daily notes and answers questions about your past —
+                    fully private and offline.
+                    Entries can be added directly from Telegram and recalled through a natural, first-person chat
+                    interface powered by a dual-retriever RAG system.
+                </p>
+            </section>
+
+            <section class="box">
+                <h2><span class="hero-highlight">Project Details</span></h2>
+                <ul class="meta-list">
+                    <li><strong>Type:</strong> Local AI App + Telegram Bot</li>
+                    <li><strong>Tech Stack:</strong> Python, Streamlit, LangChain, Ollama, ChromaDB, BM25, Telegram Bot
+                        API</li>
+                </ul>
+            </section>
+
+
+
+            <section class="box">
+                <h2><span class="hero-highlight">Description</span></h2>
+                <p>
+                    The Personal Diary Chatbot is a local, privacy-first AI assistant designed to act as your digital
+                    memory companion. It stores daily notes written as .txt files and allows you to naturally ask
+                    questions such as “What did you do on 03.02.2025?” or “Tell me about a day you felt scared.”
+                </p>
+                <p>
+                    In each session run, Every diary entry is automatically chunked, date-tagged, and indexed into a
+                    Chroma vector database
+                    for semantic retrieval, enhanced with a BM25 keyword retriever for precise results. The chatbot then
+                    responds in a personal, first-person tone — as if it’s recalling its own memories.
+                </p>
+                <p>
+                    You can also add your daily entries directly from Telegram (as long as the bot script is running
+                    locally on your computer), making journaling effortless even when
+                    you’re away from your computer. The bot automatically creates a dated .txt file in your local diary
+                    folder, ready to be indexed by the chatbot.
+                </p>
+            </section>
+            <section class="box">
+                <div class="row">
+                    <div class="col-12">
+                        <span class="image fit"><img src="../images/chatbot.png"
+                                alt="Optional diagram: Diary → Vector Store → RAG → Chatbot (to be added)" /></span>
+                        <p class="caption">Chatbot Interface</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="box">
+                <h2><span class="hero-highlight">Motivation</span></h2>
+                <p>
+                    I built this project as a way to create a personal “memory companion” — an assistant that keeps
+                    track of my thoughts and experiences in my own words. It’s a small but meaningful step toward
+                    preserving my memories and creating something that could one day speak from my perspective, based
+                    entirely on my own experiences and writing.
+                </p>
+            </section>
+
+            <section class="box">
+                <h2><span class="hero-highlight">Features</span></h2>
+                <ul>
+                    <li>Fully local and private — no cloud or API calls</li>
+                    <li>Dual-retriever RAG (semantic + keyword) for accurate recall</li>
+                    <li>Date-based filtering and natural date recognition</li>
+                    <li>First-person, memory-style responses</li>
+                    <li>Telegram integration for easy daily journaling</li>
+                </ul>
+            </section>
+
+            <section class="box">
+                <h2><span class="hero-highlight">How to Use</span></h2>
+                <ol>
+                    <li>
+                        Write your daily memory as a <code>.txt</code> file named
+                        <code>DD.MM.YYYY.txt</code> inside the <code>diary/</code> folder.
+                    </li>
+                    <li>
+                        <strong>Or</strong>, send your memory via the connected <strong>Telegram bot</strong>.
+                        <ol>
+                            <li>
+                                Start the bot locally:
+                                <pre><code>python telegram_bot.py</code></pre>
+                            </li>
+                            <li>
+                                With the bot running, send your daily entry in Telegram.
+                                It will create/save the file in your <code>diary/</code> folder automatically.
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        Run the app locally:
+                        <pre><code>streamlit run app.py</code></pre>
+                    </li>
+                </ol>
+
+                <p>Chat naturally — for example:</p>
+                <blockquote>
+                    <p>“What did you do on 20.10.2025?”</p>
+                    <p>“Tell me about a fun day.”</p>
+                </blockquote>
+            </section>
+
+
+
+
+            <section class="box">
+                <div class="row">
+                    <div class="col-12">
+                        <span class="image fit"><img src="../images/personal_diary_chatbot_diagram.png"
+                                alt="Streamlit chat screenshot" /></span>
+                        <p class="caption">Dataflow Diagram</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer style="margin-top:2rem;">
+                <a class="button alt" href="../index.html#portfolio">Back to portfolio</a>
+            </footer>
+        </div>
+    </article>
+
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

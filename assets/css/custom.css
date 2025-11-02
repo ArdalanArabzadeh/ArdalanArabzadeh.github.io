@@ -1,0 +1,885 @@
+/*
+  Custom modern theme and dark mode for Miniport
+  - Uses CSS variables
+  - Overrides legacy skeuomorphic styles for a cleaner look
+*/
+
+:root {
+    --font-sans: 'Inter', 'Open Sans', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+
+    /* Red palette for buttons, links, accents */
+    --bg: #0b0f14;
+    --bg-elev: #121922;
+    --bg-soft: #0e141b;
+    --text: #c9d4e0;
+    --text-muted: #9aa8b6;
+    --heading: #e6edf3;
+    --primary: #f43f5e;
+    --primary-600: #e11d48;
+    --primary-700: #be123c;
+    --border: #1e2a38;
+    --card: #101720;
+    --nav: rgba(10, 14, 20, 0.7);
+    --nav-border: rgba(255, 255, 255, 0.08);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Remove frames around all content blocks on project detail pages */
+.project-detail .box {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+/* Small spacing tweaks after removing padding */
+.project-detail h2,
+.project-detail h3 {
+    margin-top: 1rem;
+}
+
+.project-detail .image.fit {
+    margin-bottom: 0.6rem;
+}
+
+/* Light theme variables (enabled when data-theme="light") */
+[data-theme="light"] {
+    --bg: #f7fafc;
+    --bg-elev: #ffffff;
+    --bg-soft: #f2f5f8;
+    --text: #344054;
+    --text-muted: #667085;
+    --heading: #1f2937;
+    --primary: #2563eb;
+    --primary-600: #1d4ed8;
+    --primary-700: #1e40af;
+    --border: #e5e7eb;
+    --card: #ffffff;
+    --nav: rgba(255, 255, 255, 0.75);
+    --nav-border: rgba(20, 24, 28, 0.08);
+    --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+}
+
+/* Base overrides */
+html,
+body {
+    /* Apply global background with adjustable dark tint over image */
+    background:
+        linear-gradient(rgba(11, 15, 20, 0.60), rgba(11, 15, 20, 0.60)),
+        url('../../images/background.avif') center / cover no-repeat fixed,
+        var(--bg);
+}
+
+body,
+input,
+textarea,
+select {
+    font-family: var(--font-sans) !important;
+    color: var(--text) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--heading) !important;
+    letter-spacing: -0.02em;
+}
+
+p,
+li,
+label {
+    color: var(--text);
+}
+
+/* Navigation */
+#nav {
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    background: var(--nav) !important;
+    border-bottom: 1px solid var(--nav-border);
+}
+
+#nav a {
+    border-radius: 10px;
+}
+
+#nav a:hover {
+    background: rgba(255, 255, 255, 0.06) !important;
+}
+
+#nav a.active {
+    background: rgba(255, 255, 255, 0.10) !important;
+}
+
+#nav a.active:before {
+    border-top-color: transparent !important;
+}
+
+/* Theme toggle */
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    background: none;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: .35rem .8rem;
+    line-height: 1;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* Sections */
+.wrapper {
+    background: transparent;
+    box-shadow: none !important;
+    padding: 7em 0;
+}
+
+.wrapper.style1 {
+    background: transparent;
+}
+
+.wrapper.style2 {
+    background: transparent;
+    text-shadow: none;
+}
+
+.wrapper.style3 {
+    background: transparent;
+    text-shadow: none;
+}
+
+.wrapper.style4 {
+    background: transparent;
+    color: var(--text);
+    text-shadow: none;
+}
+
+/* Cards / Boxes */
+.box {
+    background: var(--card) !important;
+    box-shadow: var(--shadow) !important;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+
+.box.style2 .image {
+    left: 0;
+    top: 0;
+    margin: 0 0 1rem 0;
+}
+
+/* Buttons */
+button,
+.button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+    background-image: none !important;
+    background-color: var(--primary) !important;
+    color: #fff !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    padding: .9em 1.5em !important;
+    border: 1px solid transparent !important;
+}
+
+button:hover,
+.button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover {
+    background-color: var(--primary-600) !important;
+}
+
+button.alt,
+.button.alt,
+input[type="reset"].alt {
+    background-color: transparent !important;
+    color: var(--text) !important;
+    border: 1px solid var(--border) !important;
+}
+
+/* Forms */
+form input[type=text],
+form input[type=email],
+form input[type=password],
+form select,
+form textarea {
+    background: var(--bg-elev) !important;
+    color: var(--text) !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: none !important;
+}
+
+form input[type=text]::placeholder,
+form input[type=email]::placeholder,
+form input[type=password]::placeholder,
+form textarea::placeholder {
+    color: var(--text-muted) !important;
+}
+
+/* Links */
+a {
+    color: var(--primary) !important;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--primary-600) !important;
+}
+
+/* Ensure bold text inherits heading color on dark */
+b,
+strong {
+    color: inherit !important;
+}
+
+/* Social icons */
+ul.social li a:before {
+    background: var(--bg-elev) !important;
+    color: var(--text) !important;
+    box-shadow: inset 0 0 0 1px var(--border) !important;
+}
+
+/* Hero tweaks */
+#top p {
+    color: var(--text-muted);
+}
+
+/* Images */
+.image.fit img {
+    border-radius: 14px;
+}
+
+/* Subtle section dividers */
+hr {
+    border-top-color: var(--border) !important;
+    box-shadow: none !important;
+}
+
+/* Hero title large + pretty with indent */
+.hero-title {
+    margin: 0 0 0.5em 0;
+    font-size: 3.2em;
+    line-height: 1.16;
+    font-weight: 400;
+    max-width: 680px;
+    word-break: break-word;
+    /* Reserve space for both hero lines to avoid layout shift while typing */
+    min-height: calc(1.16em * 2);
+}
+
+@media (max-width: 980px) {
+    .hero-title {
+        font-size: 2.3em;
+        max-width: 97vw;
+    }
+}
+
+.hero-title strong {
+    font-weight: 700;
+}
+
+.hero-role {
+    display: block;
+    margin-left: 10.5rem;
+    margin-top: 0.5em;
+    /* vertical space between headline and role - increase for more gap */
+    font-weight: 400;
+    /* Reserve height so layout doesn't shift while typing */
+    min-height: 1.16em;
+}
+
+.hero-role .ai-ml {
+    font-weight: 800;
+}
+
+/* Highlight important words in hero title -- theme red */
+.hero-highlight {
+    color: var(--primary);
+}
+
+/* Ensure nav links are pure white, not red */
+#nav a,
+#nav a:visited {
+    color: #fff !important;
+}
+
+/* Make lead text in hero section pure white */
+.hero-lead {
+    color: #d9dadb !important;
+    /* Lower contrast, edit this color for future changes */
+    font-size: 1.15em;
+    /* optional: slightly bump size for impact */
+    margin: 1.2em 0 1.5em 0;
+    max-width: 750px;
+}
+
+/* Circular, shadowed hero photo */
+.hero-photo {
+    border-radius: 50% !important;
+    width: 90%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    box-shadow: 0 6px 32px 0 rgba(0, 0, 0, 0.17);
+    display: block;
+    margin: 0 auto;
+}
+
+.image.fit img.hero-photo {
+    border-radius: 50% !important;
+}
+
+/* --- HERO FINAL COLOR OVERRIDES (force for specificity!) --- */
+.hero-title strong.hero-highlight,
+.hero-role .ai-ml.hero-highlight,
+.hero-highlight {
+    color: var(--primary) !important;
+}
+
+.hero-lead {
+    color: #fff !important;
+}
+
+/* Muted first sentence in hero lead, matches general text/button-alt color */
+.hero-muted {
+    color: var(--text) !important;
+}
+
+/* Prefer system scheme on first visit when no choice saved */
+@media (prefers-color-scheme: light) {
+    body:not([data-theme]) {
+        color-scheme: light;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body:not([data-theme]) {
+        color-scheme: dark;
+    }
+}
+
+/* If you move the image to assets/css/images/background.png, replace the body rule's URL with: url('images/background.png') */
+.profile-image-wrapper {
+    position: relative;
+    display: block;
+}
+
+.cv-download-btn {
+    position: absolute;
+    left: -2.2rem;
+    bottom: -4.2rem;
+    background: var(--primary);
+    color: #fff !important;
+    font-size: 1.03em;
+    border-radius: 7px;
+    padding: 0.45em 1.2em 0.45em 1em;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.09);
+    display: flex;
+    align-items: center;
+    gap: 0.38em;
+    z-index: 2;
+    transition: background .18s;
+}
+
+.cv-download-btn:hover {
+    background: var(--primary-600);
+}
+
+.cv-download-btn .icon {
+    font-size: 1.2em;
+    margin-right: 0.2em;
+}
+
+/* Center hero social icons with adjustable spacing and offsets */
+.hero-social {
+    margin-top: 1rem;
+    /* baseline space under the image */
+    display: flex;
+    justify-content: flex-start;
+    /* slight left alignment under the photo */
+    align-items: center;
+    gap: var(--hero-social-gap, 0.6rem);
+    /* adjust spacing by changing --hero-social-gap */
+    padding-left: 0;
+    /* precise nudge controls (inline or via CSS): */
+    transform: translate(var(--hero-social-offset-x, 0), var(--hero-social-offset-y, 0));
+}
+
+.hero-social li {
+    margin: 0 !important;
+}
+
+/* Spacing utilities: add one of these classes to <ul class="social hero-social ..."> */
+.hero-social.gap-xs {
+    --hero-social-gap: 1.25rem;
+}
+
+.hero-social.gap-sm {
+    --hero-social-gap: 1.5rem;
+}
+
+.hero-social.gap-md {
+    --hero-social-gap: 1.8rem;
+}
+
+.hero-social.gap-lg {
+    --hero-social-gap: 2.2rem;
+}
+
+.hero-social.gap-xl {
+    --hero-social-gap: 2.8rem;
+}
+
+/* Optionally size the icons */
+/* .hero-social .icon:before { font-size: 1.2rem; } */
+
+/* Work section CTA: 'See recent work' — smaller and black */
+#work .button.large.scrolly {
+    font-size: 0.95em !important;
+    padding: 0.8em 1.4em !important;
+    background-color: #000 !important;
+    color: #fff !important;
+    border: 1px solid #000 !important;
+}
+
+/* Hero: slightly smaller 'Download CV' button */
+#top .button.large {
+    font-size: 1.08em !important;
+    padding: 0.95em 1.6em !important;
+    background: transparent !important;
+    color: #fff !important;
+    /* white text */
+    border: 0 !important;
+    box-shadow: none !important;
+    position: relative;
+    left: var(--cv-x, 0px);
+    top: var(--cv-y, 0px);
+}
+
+/* Add white arrow to the right of 'Download CV' */
+#top .button.large::after {
+    content: " \2192";
+    /* → */
+    display: inline-block;
+    margin-left: 0.5em;
+    transition: transform .2s ease;
+}
+
+#top .button.large:hover::after {
+    transform: translateX(2px);
+}
+
+/* Global: slightly smaller alternate large buttons */
+.button.large.alt {
+    font-size: 1.05em !important;
+    padding: 0.8em 1.3em !important;
+}
+
+/* Special per-text font override for the hero quote (or any targeted text) */
+.special-font {
+    font-family: 'Merriweather', 'Spectral', serif;
+    font-weight: 500;
+}
+
+/* --- Hero social icons: brand-specific --- */
+#top .hero-social a.icon,
+#top .hero-social a.icon:before {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+#top .hero-social a.icon.brands.fa-linkedin-in {
+    background: #0A66C2 !important;
+    /* solid blue background */
+    color: #fff !important;
+    /* white glyph */
+    transform: scale(var(--li-scale, 0.88));
+    transform-origin: center;
+}
+
+#top .hero-social a.icon.brands.fa-linkedin-in:before {
+    font-size: 2.0em;
+    background: #0A66C2 !important;
+    /* ensure pseudo-element also blue */
+    border: 0 !important;
+    color: #fff !important;
+    /* white glyph */
+}
+
+#top .hero-social a.icon.brands.fa-linkedin-in:hover {
+    background: #0858a6 !important;
+    /* darker blue on hover */
+    color: #fff !important;
+    transform: scale(var(--li-scale, 0.94));
+}
+
+#top .hero-social a.icon.brands.fa-github,
+.project-detail a.icon.brands.fa-github {
+    background: #000 !important;
+    /* solid black background */
+    color: #fff !important;
+    /* white cat glyph */
+    border: 0 !important;
+    /* no frame */
+}
+
+#top .hero-social a.icon.brands.fa-github:before,
+.project-detail a.icon.brands.fa-github:before {
+    background: #000 !important;
+    border: 0 !important;
+    color: #fff !important;
+}
+
+/* Slightly enlarge email and GitHub glyphs to align with LinkedIn visual size */
+#top .hero-social a.icon.solid.fa-envelope:before,
+#top .hero-social a.icon.brands.fa-github:before {
+    font-size: 2.5em;
+}
+
+#top .hero-social a.icon.brands.fa-github:hover,
+.project-detail a.icon.brands.fa-github:hover {
+    background: #0b0b0b !important;
+    /* subtle darken on hover */
+    color: #fff !important;
+}
+
+/* --- Global nav link UX improvements --- */
+#nav ul li a {
+    padding: .4rem .75rem;
+    border-radius: 8px;
+    transition: background-color .2s ease, color .2s ease, box-shadow .2s ease;
+}
+
+#nav ul li a:hover {
+    background: rgba(244, 63, 94, 0.12);
+    color: #fff;
+}
+
+#nav ul li a:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.35);
+}
+
+/* Active section highlight (when template adds .active) */
+#nav ul li a.active {
+    background: rgba(244, 63, 94, 0.18);
+    color: #fff;
+}
+
+/* --- Portfolio carousel --- */
+#portfolio .portfolio-carousel {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+#portfolio .carousel-track {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0.25rem 0.25rem 0.5rem;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+#portfolio .carousel-track::-webkit-scrollbar {
+    /* Chrome/Safari */
+    display: none;
+}
+
+#portfolio .project-card {
+    flex: 0 0 auto;
+    width: clamp(240px, 32vw, 360px);
+    scroll-snap-align: start;
+}
+
+#portfolio .carousel-arrow {
+    background: transparent !important;
+    color: #fff !important;
+    border: 1px solid #fff !important;
+    border-radius: 999px;
+    width: 48px;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.12);
+}
+
+#portfolio .carousel-arrow:hover {
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+}
+
+@media (max-width: 736px) {
+    #portfolio .carousel-arrow {
+        width: 44px;
+        height: 44px;
+    }
+
+    #portfolio .project-card {
+        width: clamp(220px, 70vw, 320px);
+    }
+}
+
+/* Project detail page layout and alignment */
+.project-detail .container>header,
+.project-detail header,
+.project-detail h1,
+.project-detail h2,
+.project-detail h3,
+.project-detail p,
+.project-detail ul,
+.project-detail ol,
+.project-detail blockquote {
+    text-align: left !important;
+}
+
+.project-detail .content-grid {
+    display: grid;
+    grid-template-columns: 3fr 1.2fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.project-detail .content-grid>main {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+.project-detail .meta .box {
+    position: sticky;
+    top: 90px;
+}
+
+.project-detail .meta .meta-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+}
+
+.project-detail .meta .meta-list li+li {
+    margin-top: .4rem;
+}
+
+@media (max-width: 980px) {
+    .project-detail .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-detail .meta .box {
+        position: static;
+    }
+}
+
+/* Certificates carousel */
+#certificates .certs-carousel {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+#certificates .certs-track {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: .25rem .25rem .5rem;
+    scrollbar-width: none;
+    /* Firefox: hide */
+}
+
+#certificates .certs-track::-webkit-scrollbar {
+    /* Chrome/Safari: hide */
+    display: none;
+}
+
+#certificates .cert-card {
+    min-width: 360px;
+    scroll-snap-align: start;
+}
+
+#certificates .cert-card .image.fit {
+    height: 300px;
+    background: var(--bg-elev);
+    border-radius: 14px;
+    display: block;
+}
+
+#certificates .cert-card .image.fit img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    background: #0b0f14;
+    padding: 6px;
+    transition: transform .2s ease, box-shadow .2s ease;
+    cursor: zoom-in;
+}
+
+#certificates .cert-card:hover .image.fit img {
+    transform: scale(1.04);
+}
+
+@media (max-width: 980px) {
+    #certificates .cert-card {
+        min-width: 86vw;
+    }
+}
+
+@media (max-width: 736px) {
+    #certificates .certs-arrow {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+    }
+}
+
+#certificates .certs-arrow {
+    position: static;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    line-height: 1;
+    border-radius: 999px;
+    border: 1px solid #fff !important;
+    color: #fff !important;
+    background: transparent !important;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.12);
+}
+
+#certificates .certs-arrow:hover {
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+}
+
+#certificates .certs-arrow:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35);
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 9999;
+}
+
+.lightbox.open {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 92vw;
+    max-height: 92vh;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    cursor: zoom-out;
+}
+
+/* --- Remove frames around cards in Portfolio and Certificates --- */
+#portfolio .box.style2,
+#certificates .box.cert-card {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+/* Add small spacing for titles since padding is removed */
+#portfolio .box.style2 h3,
+#certificates .box.cert-card h3 {
+    margin-top: 0.6rem;
+}
+
+/* Ensure project titles in portfolio are white, not theme red */
+#portfolio .project-card h3 a,
+#portfolio .project-card h3 a:visited {
+    color: #fff !important;
+}
+
+#portfolio .project-card h3 a:hover {
+    color: #fff !important;
+}
+
+/* --- Remove frames in Expertise (Skills) --- */
+#work .box.style1 {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+/* Preserve spacing for icon and text after removing padding */
+#work .box.style1 .icon {
+    margin-bottom: 0.5rem;
+}
+
+#work .box.style1 h3 {
+    margin-top: 0.4rem;
+}
+
+/* --- Motion hooks for JS dynamics --- */
+.hero-role {
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 3.35s ease, transform .35s ease;
+}
+
+.hero-role.show {
+    opacity: 1;
+    transform: none;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity .5s ease, transform .5s ease;
+}
+
+.reveal.in {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-role,
+    .reveal {
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
