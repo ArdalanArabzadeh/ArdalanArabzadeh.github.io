@@ -28,5 +28,4 @@ The site design is based on the **Miniport** template by [HTML5 UP](https://html
 - **Custom modifications and content:** © 2025 Ardalan Arabzadeh.
   You may reuse this site’s structure or styling under the same CC 3.0 license, provided proper credit is given to both HTML5 UP and Ardalan Arabzadeh.
 
-.
 
