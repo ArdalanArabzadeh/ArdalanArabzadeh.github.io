@@ -70,29 +70,72 @@ body {
         var(--bg);
 }
 
+/* Base text styling */
 body,
 input,
 textarea,
 select {
     font-family: var(--font-sans) !important;
+    font-weight: 300 !important;
+    /* lighter for modern look */
+    line-height: 1.7 !important;
+    /* more breathing room */
     color: var(--text) !important;
+    letter-spacing: 0.01em;
 }
 
+/* Headings */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+    font-family: 'Playfair Display', serif !important;
     color: var(--heading) !important;
     letter-spacing: -0.02em;
+    line-height: 1.25 !important;
+    /* slightly increased for better readability */
+    font-weight: 600 !important;
+    /* still bold but less heavy visually */
 }
 
+/* Paragraphs, list items, labels */
 p,
 li,
 label {
+    font-weight: 300;
+    line-height: 1.75;
     color: var(--text);
+    margin-bottom: 1em;
+    max-width: 700px;
+    /* improved readability for long text */
 }
+
+
+
+/* Section subtitles under main headings */
+section>header p,
+section>h2+p,
+.section-subtitle {
+    text-align: center !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 400 !important;
+    /* slightly stronger than body, lighter than heading */
+    line-height: 1.6;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0.5em auto 2em auto;
+}
+
+/* Optional: add subtle fade-in if reveal animation is enabled */
+.reveal.in section>header p,
+.reveal.in .section-subtitle {
+    transition: opacity 0.5s ease;
+    opacity: 1;
+}
+
+
 
 /* Navigation */
 #nav {
@@ -805,7 +848,7 @@ hr {
     max-width: 92vw;
     max-height: 92vh;
     border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     cursor: zoom-out;
 }
 
@@ -881,5 +924,78 @@ hr {
         transition: none !important;
         opacity: 1 !important;
         transform: none !important;
+    }
+}
+
+
+/* Section subtitles under main headings (final fix for structure with .container > header > p) */
+.wrapper header p,
+article header p,
+.container header p {
+    text-align: center !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 400 !important;
+    line-height: 1.6;
+    color: var(--text-muted) !important;
+    max-width: 700px;
+    margin: 0.5em auto 2em auto !important;
+    display: block;
+}
+
+.project-detail header p,
+.project-detail .container header p,
+.project-detail section>header p {
+    text-align: left !important;
+    margin: 0.5em 0 2em 0 !important;
+}
+
+.project-detail,
+.project-detail .container {
+    text-align: left !important;
+}
+
+.project-detail .container {
+    max-width: 1200px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.project-detail section>h2+p {
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 1200px !important;
+}
+
+.project-detail p,
+.project-detail ul,
+.project-detail ol,
+.project-detail li,
+.project-detail blockquote {
+    color: #dddada !important;
+    max-width: 1200px !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+.project-detail ul,
+.project-detail ol,
+.project-detail li,
+.project-detail blockquote {
+    color: #dddada !important;
+    max-width: 1200px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+@media (max-width: 980px) {
+
+    .project-detail p,
+    .project-detail ul,
+    .project-detail ol,
+    .project-detail li,
+    .project-detail blockquote,
+    .project-detail section>h2+p {
+        max-width: 100% !important;
     }
 }

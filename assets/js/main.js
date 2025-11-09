@@ -157,22 +157,22 @@
 		});
 	});
 
-	// Reveal-on-scroll (IntersectionObserver)
-	$(function () {
-		var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-		if (prefersReduced || !('IntersectionObserver' in window)) return;
-		var $targets = $('.box, .image.fit, .project-card, .cert-card, article header, .meta');
-		$targets.addClass('reveal');
-		var io = new IntersectionObserver(function (entries) {
-			entries.forEach(function (en) {
-				if (en.isIntersecting) {
-					$(en.target).addClass('in');
-					io.unobserve(en.target);
-				}
-			});
-		}, { threshold: 0.15 });
-		$targets.each(function () { io.observe(this); });
-	});
+	// '	// Reveal-on-scroll (IntersectionObserver)
+	// 	$(function () {
+	// 		var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	// 		if (prefersReduced || !('IntersectionObserver' in window)) return;
+	// 		var $targets = $('.box, .image.fit, .project-card, .cert-card, article header, .meta');
+	// 		$targets.addClass('reveal');
+	// 		var io = new IntersectionObserver(function (entries) {
+	// 			entries.forEach(function (en) {
+	// 				if (en.isIntersecting) {
+	// 					$(en.target).addClass('in');
+	// 					io.unobserve(en.target);
+	// 				}
+	// 			});
+	// 		}, { threshold: 0.15 });
+	// 		$targets.each(function () { io.observe(this); });
+	// 	});'
 
 	// Scrollspy for nav
 	$(function () {
@@ -233,5 +233,30 @@
 			}
 		});
 	});
+
+
+	// GSAP reveal-on-scroll
+	$(function () {
+		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+		gsap.registerPlugin(ScrollTrigger);
+
+		var revealTargets = '.box, .image.fit, .project-card, .cert-card, article header, .meta';
+
+		gsap.utils.toArray(revealTargets).forEach(function (el) {
+			gsap.from(el, {
+				opacity: 0,
+				y: 30,
+				duration: 0.8,
+				ease: 'power2.out',
+				scrollTrigger: {
+					trigger: el,
+					start: 'top 85%',
+					toggleActions: 'play none none reverse'
+				}
+			});
+		});
+	});
+
 
 })(jQuery);

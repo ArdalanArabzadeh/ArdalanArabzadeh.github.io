@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <title>Publication: Green Recommender Systems: Optimizing Dataset Size for Energy-Efficient Algorithm Performance —
+    Ardalan Arabzadeh</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/custom.css" />
+  <style>
+    /* Scoped to this project page only */
+    .project-detail.project-green .hero-title {
+      max-width: 1200px;
+      color: #fff;
+    }
+
+    .project-detail.project-green .hero-title .title-green {
+      color: #22c55e;
+    }
+
+    .project-detail.project-green .hero-title .hero-highlight {
+      color: #fff !important;
+    }
+
+    @media (max-width: 980px) {
+      .project-detail.project-green .hero-title {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body data-theme="dark">
+  <nav id="nav">
+    <ul class="container">
+      <li><a href="../index.html#top">Overview</a></li>
+      <li><a href="../index.html#work">Expertise</a></li>
+      <li><a href="../index.html#certificates">Certificates</a></li>
+      <li><a href="../index.html#portfolio">Portfolio</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <article class="wrapper style1 project-detail project-green">
+    <div class="container">
+      <header>
+        <h1 class="hero-title"><span class="title-green">Green</span> <span class="hero-highlight">Recommender Systems:
+            Optimizing Dataset Size for
+            Energy-Efficient Algorithm Performance</span></h1>
+        <p class="hero-lead" style="margin-top:0.5rem;">
+          <strong>Authors:</strong> Ardalan Arabzadeh, Tobias Vente & Joeran Beel<br>
+          <strong>Published in:</strong> RecSoGood Workshop at ACM RecSys 2024 (<a
+            href="https://link.springer.com/chapter/10.1007/978-3-031-87654-7_7" target="_blank" rel="noopener">Springer
+            link</a>)<br>
+          <a href="https://github.com/ArdalanArabzadeh/RecSoGood2024" class="icon brands fa-github" target="_blank"
+            rel="noopener" style="margin-right:.5rem;"><span class="label">GitHub</span></a>
+          <a href="https://github.com/ArdalanArabzadeh/RecSoGood2024" target="_blank" rel="noopener">View source on
+            GitHub</a>
+        </p>
+      </header>
+
+      <section class="box">
+        <h2><span class="hero-highlight">Abstract</span></h2>
+        <p>
+          As recommender systems become increasingly prevalent, the environmental impact and energy efficiency of
+          training these large-scale models have come under scrutiny. This paper investigates the potential for
+          energy-efficient algorithm performance by optimizing dataset sizes through downsampling techniques. We
+          conducted experiments on the MovieLens 100K, 1M, 10M and Amazon Toys and Games datasets, analyzing the
+          performance of various recommender algorithms under different portions of dataset size. Our results indicate
+          that while more training data generally leads to higher performance in algorithms, certain algorithms, such as
+          FunkSVD and BiasedMF, particularly in cases involving more unbalanced and sparse dataset like Amazon Toys and
+          Games, maintain high-quality recommendations with up to 50% reduction in training data, achieving nDCG@10
+          scores within
+          13% of their full dataset performance. These findings suggest that strategic dataset reduction can decrease
+          computational and environmental costs without substantially compromising recommendation quality. This study
+          advances sustainable and green recommender systems by providing actionable insights for reducing energy
+          consumption while maintaining effectiveness.
+        </p>
+      </section>
+
+      <section class="box">
+        <h2><span class="hero-highlight">Introduction & Motivation</span></h2>
+        <p>
+          Large-scale recommender systems improve user experience but increase energy consumption and carbon emissions.
+          This work investigates whether downsampling datasets can save energy while maintaining acceptable algorithm
+          performance, contributing to sustainable “Green Recommender Systems.”
+        </p>
+      </section>
+
+      <section class="box">
+        <h2><span class="hero-highlight">Methodology</span></h2>
+        <p>
+          Experiments used MovieLens 100K, 1M, 10M, and Amazon Toys and Games datasets. Training data was downsampled
+          between 10% and 100%. Algorithms evaluated include UserKNN, ItemKNN, SVD, NMF, FunkSVD, BiasedMF, Bias, and
+          Popular, with performance measured using nDCG@10. Preprocessing ensured consistent evaluation, and
+          downsampling preserved user representation.
+        </p>
+      </section>
+
+      <section class="box">
+        <h2><span class="hero-highlight">Summary of Key Findings</span></h2>
+        <p>
+          Our study shows that dataset downsampling can balance energy efficiency and algorithm performance in
+          recommender systems. A group of algorithms, such as UserKNN, SVD, ItemKNN, and NMF, perform best with larger
+          datasets, while another group, including Bias, Popularity, FunkSVD, and BiasedMF, maintains stable performance
+          even with reduced data, especially for sparse datasets. Reducing training data to
+          50% decreases runtime and energy use, saving an estimated 27.4 KGCO2e per algorithm per dataset. These results
+          indicate that strategic dataset reduction enables sustainable AI training without substantially compromising
+          recommendation quality, supporting greener practices in recommender systems.
+        </p>
+      </section>
+
+      <section class="box">
+        <div class="row">
+          <div class="col-12">
+            <span class="image fit"><img src="../images/nDCG_Scores.png"
+                alt="Publication illustrative figure placeholder" /></span>
+            <p class="caption">nDCG@10 scores for each algorithm trained on varying portions of the datasets. The
+              horizontal axis shows the percentage of the full training set, where 100% equals 80% of the total dataset,
+              with other percentages relative to this.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer style="margin-top:2rem;">
+        <a class="button alt" href="../index.html#portfolio">Back to portfolio</a>
+      </footer>
+    </div>
+  </article>
+
+  <script src="../assets/js/jquery.min.js"></script>
+  <script src="../assets/js/jquery.scrolly.min.js"></script>
+  <script src="../assets/js/browser.min.js"></script>
+  <script src="../assets/js/breakpoints.min.js"></script>
+  <script src="../assets/js/util.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>
